@@ -19,7 +19,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "bucolic-frangollo-962bd0.netlify.app",
     credentials: true,
   })
 );
