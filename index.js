@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
 import userRoute from "./routes/userRoute.js";
 import gigRoute from "./routes/gigRoute.js";
 import reviewRoute from "./routes/reviewRoute.js";
@@ -19,7 +18,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "bucolic-frangollo-962bd0.netlify.app",
+    origin: "https://bucolic-frangollo-962bd0.netlify.app",
     credentials: true,
   })
 );

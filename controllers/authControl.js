@@ -42,7 +42,9 @@ export const login = async (req, res, next) => {
     console.log(err);
     next(err);
   }
+
 };
 export const logout = async (req, res) => {
+  
   res.status(200).send("user has been logged out");
 };
