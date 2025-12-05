@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 import userRoute from "./routes/userRoute.js";
 import gigRoute from "./routes/gigRoute.js";
 import reviewRoute from "./routes/reviewRoute.js";
@@ -12,6 +13,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 const API_SERVER = express();
+
 dotenv.config();
 
 API_SERVER.use(cookieParser());
