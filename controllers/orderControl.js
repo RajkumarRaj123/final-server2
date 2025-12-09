@@ -55,6 +55,7 @@ export const confirm = async (req, res, next) => {
       {
         $set: { isCompleted: true },
       }
+      
     );
     res.status(200).send("Order has been confirmed.");
   } catch (err) {

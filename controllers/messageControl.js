@@ -23,6 +23,7 @@ export const createMessage = async (req, res, next) => {
     );
     res.status(201).send(savedMessage);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };
@@ -32,6 +33,7 @@ export const getMessage = async (req, res, next) => {
     const messages = await Message.find({ conversationId: req.params.id });
     res.status(200).send(messages);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };

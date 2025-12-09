@@ -20,7 +20,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "https://bucolic-frangollo-962bd0.netlify.app",
+    origin: "https://app.netlify.com/projects/bucolic-frangollo-962bd0",
     credentials: true,
   })
 );
