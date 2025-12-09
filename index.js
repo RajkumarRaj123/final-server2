@@ -20,7 +20,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "https://app.netlify.com/projects/bucolic-frangollo-962bd0",
+    origin: "https://zippy-shortbread-8d2ad5.netlify.app",
     credentials: true,
   })
 );
