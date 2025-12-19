@@ -40,7 +40,7 @@ export const getOrders = async (req, res, next) => {
       ...(req.isSeller ? { sellerId: req.userId } : { buyerId: req.userId }),
       isCompleted: true,
     });
-    console.log(orders)
+    console.log(orders);
     res.status(200).json(orders);
   } catch (err) {
     console.log(err);
@@ -55,7 +55,6 @@ export const confirm = async (req, res, next) => {
       {
         $set: { isCompleted: true },
       }
-      
     );
     res.status(200).send("Order has been confirmed.");
   } catch (err) {

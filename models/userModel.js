@@ -18,7 +18,7 @@ const UserSchema = new Schema(
       required: true,
     },
     img: {
-      type: [String],
+      type: String,
       required: false,
     },
     country: {

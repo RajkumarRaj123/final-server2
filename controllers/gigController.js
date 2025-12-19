@@ -7,15 +7,12 @@ export const createGig = async (req, res, next) => {
     userId: req.userId,
     ...req.body,
   });
+
   try {
     const savedGig = await newGig.save();
-
     res.status(201).json(savedGig);
-    
-
   } catch (err) {
-    console.log(err)
-
+    console.log(err);
     next(err);
   }
 };
@@ -57,6 +54,7 @@ export const getGigs = async (req, res, next) => {
     const gigs = await Gig.find(filters).sort({ [q.sort]: -1 });
     res.status(200).send(gigs);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };

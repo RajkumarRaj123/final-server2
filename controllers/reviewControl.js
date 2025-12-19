@@ -1,10 +1,9 @@
-import createError from "../utils/createError.js";
 import Review from "../models/reviewModel.js";
 import Gig from "../models/gigModel.js";
 
 export const createReview = async (req, res, next) => {
   if (req.isSeller) {
-    return next(createError(403, "seller can't create a review"));
+    return res.status(403).send("Sellers can't create a review!");
   }
   const newReview = new Review({
     userId: req.userId,
@@ -18,9 +17,9 @@ export const createReview = async (req, res, next) => {
       userId: req.userId,
     });
     if (review) {
-      return next(
-        createError(403, "you have already created a review for gig")
-      );
+      return res
+        .status(403)
+        .send("You have already created a review for this gig");
     }
     const savedReview = await newReview.save();
     await Gig.findByIdAndUpdate(req.body.gigId, {
@@ -28,6 +27,7 @@ export const createReview = async (req, res, next) => {
     });
     res.status(201).send(savedReview);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };
