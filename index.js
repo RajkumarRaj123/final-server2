@@ -20,7 +20,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "https://app.netlify.com/projects/fastidious-tartufo-1f1ab5",
+    origin: "https://fastidious-tartufo-1f1ab5.netlify.app",
     credentials: true,
   })
 );
