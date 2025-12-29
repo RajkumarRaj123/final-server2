@@ -20,7 +20,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "https://fastidious-tartufo-1f1ab5.netlify.app",
+    origin: "https://bright-praline-7d1852.netlify.app",
     credentials: true,
   })
 );
