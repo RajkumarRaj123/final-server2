@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
+
   if (!token) {
     return res.status(401).send("you are not authenticated");
   }
@@ -10,6 +11,7 @@ export const verifyToken = (req, res, next) => {
       return res.status(403).send("token is not valid");
     }
     req.userId = payload.id;
+    req.isSeller = payload.isSeller;
     next();
   });
 };
