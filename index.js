@@ -11,6 +11,7 @@ import messageRoute from "./routes/messageRoute.js";
 import authRoute from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import bidRoute from "./routes/bidRoute.js";
 
 const API_SERVER = express();
 
@@ -44,6 +45,7 @@ API_SERVER.use("/api/reviews", reviewRoute);
 API_SERVER.use("/api/orders", orderRoute);
 API_SERVER.use("/api/conversations", conversationRoute);
 API_SERVER.use("/api/messages", messageRoute);
+API_SERVER.use("/api/bids", bidRoute);
 
 API_SERVER.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
