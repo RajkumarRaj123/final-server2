@@ -21,7 +21,7 @@ API_SERVER.use(cookieParser());
 
 API_SERVER.use(
   cors({
-    origin: "https://bright-praline-7d1852.netlify.app",
+    origin: "https://final-client11.netlify.app",
     credentials: true,
   })
 );

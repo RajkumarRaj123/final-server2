@@ -1,22 +1,19 @@
-import bidModel from "../models/bidModel.js";
+import Bid from "../models/bidModel.js";
 
-export const createBid = async (req, res) => {
-  if (req.isSeller) {
-    return res.status(403).send("Sellers cannot place bids");
-  }
-
-  const newBid = new bidModel({
-    gigId: req.body.gigId,
-    buyerId: req.user._id,
-    sellerId: req.body.sellerId,
-    price: req.body.price,
-    message: req.body.message,
-  });
-
+export const createBid = async (req, res, next) => {
   try {
-    const savedBid = await newBid.save();
-    res.status(201).json(savedBid);
+    const newBid = new Bid({
+      gigId: req.body.gigId,
+      sellerId: req.body.sellerId,
+      buyerId: req.userId, // 👈 token la irundhu
+      price: req.body.price,
+      message: req.body.message,
+    });
+
+    await newBid.save();
+    res.status(201).send("Bid created successfully");
   } catch (err) {
-    res.status(500).send("Failed to create bid");
+    console.log("BID ERROR 👉", err);
+    res.status(500).send("Something went wrong");
   }
 };
